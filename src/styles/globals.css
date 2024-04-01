@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #424242;
+}
+
+.secondary {
+  @apply !rounded-full !py-4 h-max bg-secondary;
+}
+
+button.btn.btn-primary {
+  @apply !py-7;
+}
+
+.input-field {
+  @apply bg-input p-2 rounded-lg gap-0;
+}
+
+.input-field .form-label {
+  @apply text-[#616161] uppercase;
+}
+
+.input-field .input {
+  @apply border-none bg-transparent p-2 rounded-md;
+}
