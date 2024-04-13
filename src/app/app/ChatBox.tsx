@@ -18,11 +18,11 @@ export const ChatBox = ({ user }: { user: User }) => {
   const chatBody = useRef(null);
 
   const {message: customActionMessage, sendMessage: setCustomAction} = useCustomAction();
-  const { messages, input, handleInputChange, handleSubmit, error, isLoading, append, stop } = useChat(user && {
+  const { messages, input, handleInputChange, handleSubmit, error, isLoading, append, stop } = useChat(user ? {
     body: {
       biodata
     }
-  });
+  } : {});
 
   useEffect(() => {
     if (!user) return;

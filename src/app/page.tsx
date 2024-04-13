@@ -4,7 +4,8 @@ import { redirect } from "next/navigation";
 
 const Home = async () => {
   setTimeout(() => {
-    try { redirect('/auth') } catch (e) { null }
+    // try { redirect('/auth') } catch (e) { null }
+    redirect('/auth')
   }, 1000)
 
   return (
