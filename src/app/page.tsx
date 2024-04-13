@@ -3,11 +3,9 @@ import { redirect } from "next/navigation";
 
 
 const Home = async () => {
-  try {
-    setTimeout(() => {
-      redirect('/auth')
-    }, 1000)
-  } catch (e) { null }
+  // setTimeout(() => {
+  redirect('/auth')
+  // }, 1000)
 
   return (
     <main className="flex justify-center items-center px-4 py-8 h-screen">
