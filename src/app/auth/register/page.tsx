@@ -37,7 +37,7 @@ const Home = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user) router.push('/app')
+      try { if (user == null) { router.push("/app"); return; } } catch (e) { null }
     })
   }, [router]);
   return (

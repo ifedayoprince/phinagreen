@@ -17,7 +17,7 @@ export const ChatBox = ({ user }: { user: User }) => {
   const { data: biodata, update } = useBiodata();
   const chatBody = useRef(null);
 
-  const customActionMessage = useCustomAction(state => state.message);
+  const {message: customActionMessage, sendMessage: setCustomAction} = useCustomAction();
   const { messages, input, handleInputChange, handleSubmit, error, isLoading, append, stop } = useChat(user && {
     body: {
       biodata
@@ -40,6 +40,7 @@ export const ChatBox = ({ user }: { user: User }) => {
 
     stop()
     append(msg);
+    setCustomAction(null);
   }, [customActionMessage]);
 
   

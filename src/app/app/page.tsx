@@ -18,13 +18,13 @@ const Home = () => {
   const sendCustomAction = useCustomAction(state => state.sendMessage);
 
   useEffect(() => {
-    if (user == null) {router.push("/auth"); return;}
+    try { if (user == null) { router.push("/auth"); return; } } catch (e) { null }
 
     update(user.uid);
   }, [router, update, user])
 
   const QuickActions: [string, () => void][] = [
-    ["Generate BMI", () => { sendCustomAction("Generate my BMI with me. Let's think step by step")}],
+    ["Generate BMI", () => { sendCustomAction("Generate my BMI with me. Let's think step by step") }],
     ["Suggest exercise", () => { sendCustomAction('Suggest exercises I could engage in') }],
     ["Suggest diet plan", () => { sendCustomAction('Suggest diet plans I could join in') }],
     ["Continental recipes", () => { sendCustomAction('Suggest continental dishes that would be good for me') }],

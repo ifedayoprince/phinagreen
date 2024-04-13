@@ -24,7 +24,7 @@ const Home = () => {
   const [bmi, setBMI] = useState<any>(null);
 
   useEffect(() => {
-    if (user == null) router.push("/auth")
+    try { if (user == null) { router.push("/auth"); return; } } catch (e) { null }
   }, [router, user])
 
 

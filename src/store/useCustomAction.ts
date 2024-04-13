@@ -3,7 +3,7 @@ import { create } from "zustand";
 
 interface CustomActionState {
   message: string | null;
-  sendMessage: (message: string) => void;
+  sendMessage: (message: string | null) => void;
 }
 
 const useCustomAction = create<CustomActionState>()(set => ({

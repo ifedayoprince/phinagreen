@@ -5,13 +5,13 @@ import { ArrowRight2 } from 'iconsax-react'
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { GoogleIcon } from '@/components/icons/google'
 import { InputField } from '@/components/InputField';
 
 import signIn, { signInWithGoogle } from '@/firebase/auth/signin';
 import firebase_app from "@/firebase/config";
-import { toast } from 'react-toastify';
 
 const auth = getAuth(firebase_app);
 
@@ -37,7 +37,7 @@ const Home = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user) router.push('/app')
+      try { if (user == null) { router.push("/app"); return; } } catch (e) { null }
     })
   }, [router]);
 
