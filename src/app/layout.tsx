@@ -1,13 +1,15 @@
-import { Container, ThemeProvider, createTheme } from '@mui/material';
-import GlobalStyles from '@mui/material/GlobalStyles';
 import { Metadata } from 'next';
+import {Zen_Kaku_Gothic_Antique} from 'next/font/google';
 import * as React from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import '@/styles/globals.css';
 import '@/styles/font.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { SITE_CONFIG } from '@/constants';
-import { GLOBAL_STYLES } from '@/styles';
+import { AuthContextProvider } from '@/context/AuthContext';
+
 
 export const metadata: Metadata = {
   title: {
@@ -18,8 +20,6 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   icons: {
     icon: '/favicon/favicon.ico',
-    shortcut: '/favicon/favicon-16x16.png',
-    apple: '/favicon/apple-touch-icon.png',
   },
   manifest: `/favicon/site.webmanifest`,
   openGraph: {
@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
     siteName: SITE_CONFIG.title,
-    images: [`${SITE_CONFIG.url}/images/og.jpg`],
     type: 'website',
     locale: 'en_US',
   },
@@ -35,22 +34,28 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
-    images: [`${SITE_CONFIG.url}/images/og.jpg`],
   }
 };
 
+const zen = Zen_Kaku_Gothic_Antique({
+  weight: ['400', '300', '900', '500', '700'],
+  subsets: ['latin'],
+  preload: false
+});
+
 export default function RootLayout({
-  children,  
+  children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang='en'>
-      {/* <body className={zen_kaku.className}> */}
-      <body className="flex justify-center">
-        {/* <ThemeProvider theme={theme}> */}
-          <div className='container'>{children}</div>
-        {/* </ThemeProvider> */}
+      <body className={zen.className}>
+      {/* <body> */}
+        <AuthContextProvider>
+          {children}
+          <ToastContainer />
+        </AuthContextProvider>
       </body>
     </html>
   );
