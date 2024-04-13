@@ -1,11 +1,15 @@
+'use client'
+
 import Image from "next/image";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 
-const Home = async () => {
-  // setTimeout(() => {
-  redirect('/auth')
-  // }, 1000)
+const Home = () => {
+  const router = useRouter();
+
+  setTimeout(() => {
+    try { router.replace('/auth') } catch (e) { null }
+  }, 1000)
 
   return (
     <main className="flex justify-center items-center px-4 py-8 h-screen">
