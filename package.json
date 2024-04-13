@@ -22,6 +22,7 @@
     "@hookform/resolvers": "^3.3.1",
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.10",
+    "@vercel/analytics": "^1.2.2",
     "ai": "^3.0.20",
     "dayjs": "^1.11.10",
     "firebase": "^10.10.0",

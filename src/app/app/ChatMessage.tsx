@@ -5,7 +5,7 @@ export const ChatMessage = ({ message, bot, loading, avatar }: { message: string
     <div className={`flex gap-3 w-full ${bot ? "justify-start" : "justify-end"}`}>
       {bot && <div className="avatar avatar-sm md:avatar-md avatar-squared p-1">
         <Image
-          src='/svg/logo.svg'
+          src='/svg/logo-main.svg'
           priority
           alt='logo'
           className='!object-contain'

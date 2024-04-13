@@ -12,7 +12,7 @@ const Home = async () => {
       <div className="flex flex-col p-20 rounded-full gap-8 max-w-xs bg-secondary items-center justify-center">
         <div className="flex flex-col gap-2 items-center animate-bounce">
           <Image
-            src="/svg/logo.svg"
+            src="/svg/logo-main.svg"
             priority
             alt="Logo"
             width={400}

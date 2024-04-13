@@ -45,7 +45,7 @@ const Home = () => {
       <div className="flex flex-col gap-8 w-full md:max-w-xs">
         <div className="flex gap-2 items-center">
           <Image
-            src="/svg/logo.svg"
+            src="/svg/logo-main.svg"
             priority
             alt="Logo"
             width={400}

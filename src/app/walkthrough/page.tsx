@@ -30,7 +30,7 @@ const Home = () => {
 
   const handleBiodataUpdate = (data: any) => {
     setIsLoading(true);
-    
+
     const bmi = parseFloat(data.weight) / Math.pow(parseFloat(data.height), 2);
     let bmiSummary = "N/A"
 
@@ -46,12 +46,12 @@ const Home = () => {
     addData('biodata', user.uid, data as BioData).then(() => setNextSlide(true))
   }
 
-  useEffect(()=>{
-    if(!nextSlide) return;
+  useEffect(() => {
+    if (!nextSlide) return;
 
-    setTimeout(()=>{
+    setTimeout(() => {
       setLoadingBMI(false);
-    },2000)
+    }, 2000)
   }, [nextSlide])
 
   return (
@@ -59,7 +59,7 @@ const Home = () => {
       <div className="flex flex-col gap-8 max-w-lg">
         <div className="flex flex-col gap-2 items-center">
           <Image
-            src="/svg/logo.svg"
+            src="/svg/logo-main.svg"
             priority
             alt="Logo"
             width={400}

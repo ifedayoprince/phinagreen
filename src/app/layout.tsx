@@ -1,5 +1,6 @@
+import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from 'next';
-import {Zen_Kaku_Gothic_Antique} from 'next/font/google';
+import { Zen_Kaku_Gothic_Antique } from 'next/font/google';
 import * as React from 'react';
 import { ToastContainer } from 'react-toastify';
 
@@ -31,11 +32,11 @@ export const metadata: Metadata = {
     locale: 'en_US',
   },
   twitter: {
-    card: 'summary_large_image',
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
   }
 };
+
 
 const zen = Zen_Kaku_Gothic_Antique({
   weight: ['400', '300', '900', '500', '700'],
@@ -51,11 +52,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={zen.className}>
-      {/* <body> */}
+        {/* <body> */}
         <AuthContextProvider>
           {children}
           <ToastContainer />
         </AuthContextProvider>
+        <Analytics />
       </body>
     </html>
   );
