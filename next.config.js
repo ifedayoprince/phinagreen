@@ -3,7 +3,15 @@ const nextConfig = {
   eslint: {
     dirs: ['src'],
   },
-  
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/auth',
+        permanent: true,
+      },
+    ]
+  },
 
   webpack(config) {
     config.module.rules.push({

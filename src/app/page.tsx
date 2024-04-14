@@ -1,20 +1,8 @@
-'use client'
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 
 const Home = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    setTimeout(() => {
-      try { router.replace('/auth') } catch (e) { null }
-    }, 1000)
-  }, [router])
-
-
   return (
     <main className="flex justify-center items-center px-4 py-8 h-screen">
       <div className="flex flex-col p-20 rounded-full gap-8 max-w-xs bg-secondary items-center justify-center">
