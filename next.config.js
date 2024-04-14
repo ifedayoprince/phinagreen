@@ -3,6 +3,7 @@ const nextConfig = {
   eslint: {
     dirs: ['src'],
   },
+  
 
   webpack(config) {
     config.module.rules.push({

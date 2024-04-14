@@ -20,7 +20,7 @@ const auth = getAuth(firebase_app);
 const Home = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const router = useRouter()
+  const router = useRouter();
 
   const handleForm = async (event: any) => {
     event.preventDefault()
@@ -37,9 +37,11 @@ const Home = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      try { if (user != null) { router.push("/app"); return; } } catch (e) { null }
+      try { if (user != null) { router.push("/walkthrough"); return; } } catch (e) { null }
     })
   }, [router]);
+
+
   return (
     <main className="grid md:grid-cols-2 px-4 py-8 gap-5">
       <div className="flex flex-col gap-8 w-full md:max-w-xs">
